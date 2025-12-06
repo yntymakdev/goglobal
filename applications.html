@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Applications - GoGlobal Admin</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary: #c84b4b;
+        --dark: #1a1a1a;
+        --gray: #666;
+        --cream: #fff8f3;
+      }
+
+      body {
+        font-family: "DM Sans", sans-serif;
+        background: var(--cream);
+        padding: 2rem;
+      }
+
+      .header {
+        background: white;
+        padding: 2rem;
+        border-radius: 20px;
+        margin-bottom: 2rem;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .header h1 {
+        font-family: "Playfair Display", serif;
+        font-size: 2.5rem;
+        color: var(--primary);
+      }
+
+      .back-btn {
+        padding: 0.8rem 2rem;
+        background: var(--primary);
+        color: white;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: 600;
+      }
+
+      .applications-container {
+        background: white;
+        padding: 3rem;
+        border-radius: 20px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+      }
+
+      .application-card {
+        background: var(--cream);
+        padding: 2rem;
+        border-radius: 15px;
+        margin-bottom: 1.5rem;
+        border-left: 5px solid var(--primary);
+      }
+
+      .application-card h3 {
+        font-size: 1.5rem;
+        color: var(--dark);
+        margin-bottom: 1rem;
+      }
+
+      .app-detail {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .app-detail div {
+        padding: 0.5rem 0;
+      }
+
+      .app-detail strong {
+        display: block;
+        color: var(--primary);
+        font-size: 0.9rem;
+        margin-bottom: 0.3rem;
+      }
+
+      .motivation-text {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 10px;
+        margin-top: 1rem;
+        white-space: pre-wrap;
+        line-height: 1.7;
+      }
+
+      .delete-app-btn {
+        padding: 0.5rem 1.5rem;
+        background: #dc2626;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 600;
+        margin-top: 1rem;
+      }
+
+      .no-applications {
+        text-align: center;
+        padding: 4rem;
+        color: var(--gray);
+      }
+
+      @media (max-width: 1024px) {
+        body {
+          padding: 1.5rem;
+        }
+
+        .header {
+          padding: 1.5rem;
+        }
+
+        .header h1 {
+          font-size: 2rem;
+        }
+
+        .applications-container {
+          padding: 2.5rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        body {
+          padding: 1rem;
+        }
+
+        .header {
+          flex-direction: column;
+          gap: 1rem;
+          padding: 1.5rem;
+        }
+
+        .header h1 {
+          font-size: 1.8rem;
+          text-align: center;
+        }
+
+        .back-btn {
+          width: 100%;
+          text-align: center;
+          padding: 0.7rem 1.5rem;
+          font-size: 0.95rem;
+        }
+
+        .applications-container {
+          padding: 2rem;
+        }
+
+        .application-card {
+          padding: 1.5rem;
+        }
+
+        .application-card h3 {
+          font-size: 1.3rem;
+        }
+
+        .app-detail {
+          grid-template-columns: 1fr;
+          gap: 0.8rem;
+        }
+
+        .app-detail div {
+          padding: 0.4rem 0;
+        }
+
+        .app-detail strong {
+          font-size: 0.85rem;
+        }
+
+        .motivation-text {
+          padding: 1.2rem;
+          font-size: 0.95rem;
+        }
+
+        .delete-app-btn {
+          width: 100%;
+          padding: 0.6rem 1.2rem;
+          font-size: 0.95rem;
+        }
+
+        .no-applications {
+          padding: 3rem 1.5rem;
+          font-size: 0.95rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        body {
+          padding: 0.5rem;
+        }
+
+        .header {
+          padding: 1rem;
+        }
+
+        .header h1 {
+          font-size: 1.5rem;
+        }
+
+        .back-btn {
+          padding: 0.6rem 1.2rem;
+          font-size: 0.85rem;
+        }
+
+        .applications-container {
+          padding: 1.5rem;
+        }
+
+        .application-card {
+          padding: 1.2rem;
+          margin-bottom: 1rem;
+        }
+
+        .application-card h3 {
+          font-size: 1.1rem;
+          margin-bottom: 0.8rem;
+        }
+
+        .app-detail {
+          gap: 0.6rem;
+        }
+
+        .app-detail strong {
+          font-size: 0.8rem;
+        }
+
+        .app-detail div {
+          font-size: 0.9rem;
+        }
+
+        .motivation-text {
+          padding: 1rem;
+          font-size: 0.9rem;
+          line-height: 1.6;
+        }
+
+        .delete-app-btn {
+          padding: 0.5rem 1rem;
+          font-size: 0.9rem;
+        }
+
+        .no-applications {
+          padding: 2rem 1rem;
+          font-size: 0.9rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>📋 Applications (<span id="appCount">0</span>)</h1>
+      <a href="admin-panel.html" class="back-btn">← Back to Admin</a>
+    </div>
+
+    <div class="applications-container">
+      <div id="applicationsList">
+        <div class="no-applications">Loading applications...</div>
+      </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+
+    <script>
+      // ВСТАВЬ СВОЙ FIREBASE CONFIG СЮДА! 👇
+      const firebaseConfig = {
+        apiKey: "AIzaSyDHpmM6ZUx-nx2oqc6U9FaeDyD-DUhTgY4",
+        authDomain: "goglobal-ba1bd.firebaseapp.com",
+        projectId: "goglobal-ba1bd",
+        databaseURL: "https://goglobal-ba1bd-default-rtdb.europe-west1.firebasedatabase.app",
+        storageBucket: "goglobal-ba1bd.firebasestorage.app",
+        messagingSenderId: "742262514150",
+        appId: "1:742262514150:web:bb19dd46674568c154f627",
+        measurementId: "G-GCPJWLG451",
+      };
+
+      firebase.initializeApp(firebaseConfig);
+      const database = firebase.database();
+
+      function loadApplications() {
+        database.ref("applications").on("value", (snapshot) => {
+          const data = snapshot.val();
+          const applications = data
+            ? Object.values(data).sort((a, b) => b.submittedAt.localeCompare(a.submittedAt))
+            : [];
+
+          document.getElementById("appCount").textContent = applications.length;
+
+          const container = document.getElementById("applicationsList");
+
+          if (applications.length === 0) {
+            container.innerHTML = '<div class="no-applications">No applications yet.</div>';
+            return;
+          }
+
+          container.innerHTML = applications
+            .map(
+              (app) => `
+                    <div class="application-card">
+                        <h3>${app.name} - ${app.position}</h3>
+                        
+                        <div class="app-detail">
+                            <div>
+                                <strong>Age:</strong>
+                                ${app.age} years
+                            </div>
+                            <div>
+                                <strong>Country:</strong>
+                                ${app.country}
+                            </div>
+                            <div>
+                                <strong>Email:</strong>
+                                <a href="mailto:${app.email}">${app.email}</a>
+                            </div>
+                            <div>
+                                <strong>Telegram:</strong>
+                                <a href="https://t.me/${app.telegram.replace("@", "")}" target="_blank">${
+                app.telegram
+              }</a>
+                            </div>
+                            <div>
+                                <strong>Submitted:</strong>
+                                ${new Date(app.submittedAt).toLocaleString()}
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <strong>Motivation:</strong>
+                            <div class="motivation-text">${app.motivation}</div>
+                        </div>
+                        
+                        ${
+                          app.experience && app.experience !== "Not provided"
+                            ? `
+                            <div style="margin-top: 1rem;">
+                                <strong>Experience:</strong>
+                                <div class="motivation-text">${app.experience}</div>
+                            </div>
+                        `
+                            : ""
+                        }
+                        
+                        <button class="delete-app-btn" onclick="deleteApplication(${
+                          app.id
+                        })">Delete Application</button>
+                    </div>
+                `
+            )
+            .join("");
+        });
+      }
+
+      function deleteApplication(id) {
+        if (confirm("Delete this application?")) {
+          database.ref("applications/" + id).remove();
+        }
+      }
+
+      loadApplications();
+    </script>
+  </body>
+</html>

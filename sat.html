@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SAT Preparation - GoGlobal</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary: #c84b4b;
+        --primary-dark: #991b1b;
+        --accent: #ff6b6b;
+        --cream: #fff8f3;
+        --dark: #1a1a1a;
+        --gray: #666;
+      }
+
+      body {
+        font-family: "DM Sans", sans-serif;
+        background: var(--cream);
+        color: var(--dark);
+      }
+
+      nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        padding: 2rem 4rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+        background: rgba(255, 248, 243, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(200, 75, 75, 0.1);
+      }
+
+      .logo {
+        font-family: "Playfair Display", serif;
+        font-size: 2rem;
+        font-weight: 900;
+        color: var(--primary);
+      }
+
+      .back-btn {
+        padding: 0.8rem 2rem;
+        background: var(--primary);
+        color: white;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: 600;
+        transition: all 0.3s;
+      }
+
+      .back-btn:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(200, 75, 75, 0.3);
+      }
+
+      .detail-hero {
+        padding: 150px 4rem 80px;
+        background: linear-gradient(135deg, #4169e1, #6495ed);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .detail-hero::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -20%;
+        width: 60%;
+        height: 150%;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+        animation: float-rotate 20s infinite;
+      }
+
+      @keyframes float-rotate {
+        0%,
+        100% {
+          transform: rotate(0deg);
+        }
+        50% {
+          transform: rotate(180deg);
+        }
+      }
+
+      .hero-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+      }
+
+      .exam-badge {
+        display: inline-block;
+        padding: 0.5rem 1.5rem;
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        border-radius: 50px;
+        color: white;
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+      }
+
+      .detail-hero h1 {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(3rem, 7vw, 6rem);
+        font-weight: 900;
+        color: white;
+        margin-bottom: 1.5rem;
+        line-height: 1.1;
+      }
+
+      .detail-hero p {
+        font-size: 1.5rem;
+        color: rgba(255, 255, 255, 0.95);
+        max-width: 700px;
+        line-height: 1.6;
+      }
+
+      .stats-bar {
+        background: white;
+        padding: 3rem 4rem;
+        margin: -50px 4rem 0;
+        border-radius: 30px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        position: relative;
+        z-index: 10;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 3rem;
+      }
+
+      .stat-item {
+        text-align: center;
+      }
+
+      .stat-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .stat-value {
+        font-family: "Playfair Display", serif;
+        font-size: 2.5rem;
+        font-weight: 900;
+        color: #4169e1;
+        display: block;
+      }
+
+      .stat-label {
+        color: var(--gray);
+        margin-top: 0.5rem;
+      }
+
+      .content-section {
+        max-width: 1200px;
+        margin: 6rem auto;
+        padding: 0 4rem;
+      }
+
+      .content-section h2 {
+        font-family: "Playfair Display", serif;
+        font-size: 3rem;
+        color: var(--dark);
+        margin-bottom: 2rem;
+      }
+
+      .content-section p {
+        font-size: 1.2rem;
+        line-height: 1.8;
+        color: var(--gray);
+        margin-bottom: 2rem;
+      }
+
+      .test-structure {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        margin: 4rem 0;
+      }
+
+      .structure-card {
+        background: white;
+        padding: 2.5rem;
+        border-radius: 25px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        transition: all 0.4s;
+        border: 2px solid transparent;
+      }
+
+      .structure-card:hover {
+        transform: translateY(-10px);
+        border-color: #4169e1;
+        box-shadow: 0 20px 50px rgba(65, 105, 225, 0.2);
+      }
+
+      .structure-card h3 {
+        font-family: "Playfair Display", serif;
+        font-size: 1.8rem;
+        color: #4169e1;
+        margin-bottom: 1rem;
+      }
+
+      .duration {
+        background: var(--cream);
+        padding: 0.5rem 1rem;
+        border-radius: 50px;
+        display: inline-block;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #4169e1;
+        margin-bottom: 1rem;
+      }
+
+      .structure-card ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .structure-card li {
+        padding: 0.5rem 0;
+        padding-left: 1.5rem;
+        position: relative;
+        color: var(--gray);
+      }
+
+      .structure-card li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: #4169e1;
+        font-weight: bold;
+      }
+
+      .tips-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin: 4rem 0;
+      }
+
+      .tip-card {
+        background: linear-gradient(135deg, #fff8f3, white);
+        padding: 3rem;
+        border-radius: 25px;
+        border-left: 5px solid #4169e1;
+        transition: all 0.3s;
+      }
+
+      .tip-card:hover {
+        transform: translateX(10px);
+        box-shadow: 0 15px 40px rgba(65, 105, 225, 0.15);
+      }
+
+      .tip-number {
+        font-family: "Playfair Display", serif;
+        font-size: 3rem;
+        font-weight: 900;
+        color: #4169e1;
+        opacity: 0.3;
+        line-height: 1;
+      }
+
+      .tip-card h4 {
+        font-size: 1.5rem;
+        margin: 1rem 0;
+        color: var(--dark);
+      }
+
+      .tip-card p {
+        color: var(--gray);
+        font-size: 1.05rem;
+        line-height: 1.7;
+      }
+
+      .resources {
+        background: white;
+        padding: 4rem;
+        border-radius: 30px;
+        margin: 4rem 0;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+      }
+
+      .resources h3 {
+        font-family: "Playfair Display", serif;
+        font-size: 2.5rem;
+        color: var(--dark);
+        margin-bottom: 2rem;
+      }
+
+      .resource-list {
+        display: grid;
+        gap: 1.5rem;
+      }
+
+      .resource-item {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 1.5rem;
+        background: var(--cream);
+        border-radius: 15px;
+        transition: all 0.3s;
+      }
+
+      .resource-item:hover {
+        background: #4169e1;
+        color: white;
+        transform: translateX(10px);
+      }
+
+      .resource-icon {
+        width: 60px;
+        height: 60px;
+        background: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        flex-shrink: 0;
+      }
+
+      .resource-item:hover .resource-icon {
+        background: var(--cream);
+      }
+
+      .resource-info h4 {
+        font-size: 1.3rem;
+        margin-bottom: 0.3rem;
+      }
+
+      .resource-info p {
+        font-size: 1rem;
+        opacity: 0.8;
+        margin: 0;
+      }
+
+      .cta-detail {
+        background: linear-gradient(135deg, #4169e1, #6495ed);
+        padding: 6rem 4rem;
+        text-align: center;
+        border-radius: 30px;
+        margin: 6rem 0;
+      }
+
+      .cta-detail h2 {
+        font-family: "Playfair Display", serif;
+        font-size: 3.5rem;
+        color: white;
+        margin-bottom: 1.5rem;
+      }
+
+      .cta-detail p {
+        font-size: 1.3rem;
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 2.5rem;
+      }
+
+      .cta-btn {
+        display: inline-block;
+        padding: 1.5rem 4rem;
+        background: white;
+        color: #4169e1;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 1.2rem;
+        transition: all 0.4s;
+      }
+
+      .cta-btn:hover {
+        transform: translateY(-5px) scale(1.05);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+      }
+
+      @media (max-width: 768px) {
+        nav {
+          padding: 1.5rem 2rem;
+        }
+
+        .detail-hero {
+          padding: 120px 2rem 60px;
+        }
+
+        .detail-hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .detail-hero p {
+          font-size: 1.1rem;
+        }
+
+        .stats-bar {
+          margin: -50px 2rem 0;
+          padding: 2rem;
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .content-section {
+          padding: 0 2rem;
+          margin: 4rem auto;
+        }
+
+        .content-section h2 {
+          font-size: 2rem;
+        }
+
+        .test-structure,
+        .tips-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .resources {
+          padding: 2rem;
+        }
+
+        .cta-detail {
+          padding: 4rem 2rem;
+        }
+
+        .cta-detail h2 {
+          font-size: 2.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="logo">GoGlobal</div>
+      <a href="goglobal-landing.html" class="back-btn">← Back to Home</a>
+    </nav>
+
+    <section class="detail-hero">
+      <div class="hero-content">
+        <span class="exam-badge">🎓 College Entrance Exam</span>
+        <h1>SAT Preparation</h1>
+        <p>Master the SAT with comprehensive preparation materials and achieve your dream college admission score.</p>
+      </div>
+    </section>
+
+    <div class="stats-bar">
+      <div class="stat-item">
+        <div class="stat-icon">⏱️</div>
+        <span class="stat-value">3 hours</span>
+        <div class="stat-label">Test Duration</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-icon">📝</div>
+        <span class="stat-value">2</span>
+        <div class="stat-label">Main Sections</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-icon">🎯</div>
+        <span class="stat-value">1600</span>
+        <div class="stat-label">Perfect Score</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-icon">🏫</div>
+        <span class="stat-value">4000+</span>
+        <div class="stat-label">Colleges Accept</div>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>What is the SAT?</h2>
+      <p>
+        The SAT is a standardized test widely used for college admissions in the United States and internationally. It
+        measures your readiness for college and provides colleges with a common data point to compare applicants.
+      </p>
+      <p>
+        The digital SAT is shorter, easier to take, and has more time per question. Your score demonstrates your
+        abilities in reading, writing, and math – skills essential for college success.
+      </p>
+
+      <h2 style="margin-top: 4rem">Test Structure</h2>
+      <div class="test-structure">
+        <div class="structure-card">
+          <h3>📖 Reading & Writing</h3>
+          <span class="duration">64 minutes (2 modules)</span>
+          <ul>
+            <li>54 questions total</li>
+            <li>27 questions per module</li>
+            <li>Adaptive difficulty</li>
+            <li>Score: 200-800</li>
+          </ul>
+        </div>
+
+        <div class="structure-card">
+          <h3>🔢 Math</h3>
+          <span class="duration">70 minutes (2 modules)</span>
+          <ul>
+            <li>44 questions total</li>
+            <li>22 questions per module</li>
+            <li>Calculator allowed</li>
+            <li>Score: 200-800</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2 style="margin-top: 6rem">Expert Tips for SAT Success</h2>
+      <div class="tips-grid">
+        <div class="tip-card">
+          <div class="tip-number">01</div>
+          <h4>Start Early</h4>
+          <p>
+            Begin your SAT prep at least 3-6 months before your test date. Consistent daily practice yields better
+            results than cramming.
+          </p>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-number">02</div>
+          <h4>Take Practice Tests</h4>
+          <p>
+            Complete full-length practice tests under timed conditions to build stamina and familiarize yourself with
+            the digital format.
+          </p>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-number">03</div>
+          <h4>Learn from Mistakes</h4>
+          <p>
+            Review every wrong answer thoroughly. Understanding why you got something wrong is more valuable than
+            getting it right.
+          </p>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-number">04</div>
+          <h4>Master Time Management</h4>
+          <p>
+            Practice pacing yourself. Know how much time to spend on each question to complete all sections comfortably.
+          </p>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-number">05</div>
+          <h4>Focus on Weaknesses</h4>
+          <p>
+            Identify your weak areas and dedicate extra time to improving them. Don't just practice what you're already
+            good at.
+          </p>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-number">06</div>
+          <h4>Use Official Resources</h4>
+          <p>
+            Prioritize official College Board practice materials. They're the most accurate representation of the actual
+            test.
+          </p>
+        </div>
+      </div>
+
+      <div class="resources">
+        <h3>Free SAT Resources from GoGlobal</h3>
+        <div class="resource-list">
+          <div class="resource-item">
+            <div class="resource-icon">📚</div>
+            <div class="resource-info">
+              <h4>Comprehensive Study Guides</h4>
+              <p>Complete materials covering all SAT topics</p>
+            </div>
+          </div>
+
+          <div class="resource-item">
+            <div class="resource-icon">✅</div>
+            <div class="resource-info">
+              <h4>Practice Questions</h4>
+              <p>1000+ practice questions with detailed explanations</p>
+            </div>
+          </div>
+
+          <div class="resource-item">
+            <div class="resource-icon">📊</div>
+            <div class="resource-info">
+              <h4>Full-Length Tests</h4>
+              <p>10+ complete practice tests in digital format</p>
+            </div>
+          </div>
+
+          <div class="resource-item">
+            <div class="resource-icon">🎥</div>
+            <div class="resource-info">
+              <h4>Video Lessons</h4>
+              <p>Step-by-step tutorials for difficult concepts</p>
+            </div>
+          </div>
+
+          <div class="resource-item">
+            <div class="resource-icon">👥</div>
+            <div class="resource-info">
+              <h4>Study Groups</h4>
+              <p>Connect with peers for collaborative learning</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-detail">
+        <h2>Ready to Ace the SAT?</h2>
+        <p>Join GoGlobal and start your journey to a perfect score today!</p>
+        <a href="#" class="cta-btn">Join GoGlobal Now →</a>
+      </div>
+    </div>
+  </body>
+</html>
